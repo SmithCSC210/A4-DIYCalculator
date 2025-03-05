@@ -77,7 +77,7 @@ Handling infix expressions is more complicated because you have to deal with par
 However, infix expressions can be converted (parentheses and all) into postfix ones using a single stack. 
 In this stage, you will once again parse a string containing an equation using `Tokenizer.readTokens()`.
 The end result will be a queue of `Doubles` and `Characters` consistent with the format of a postfix expression (e.g., you will convert `(3 + 2) * 5` to `3 2 + 5 *`).
-Therefore, you can use the `Postfix.postfix` method you wrote in Phase 2 to do all of the acutal math, and if your Phase 2 code passes all the tests, you should be able to just call the method without any changes. 
+Therefore, you can just call your `Postfix.postfix` method you wrote in Phase 2 to do all of the actual math, and if your Phase 2 code passes all the tests, you should be able to just call the method without any changes. 
 
 You will write a method in the `Infix` class called `infixToPostfix`.
 In this stage, as soon as you read a `Double` from the input queue, you can put it directly into the output queue to send to `Postfix.postfix`.
@@ -117,7 +117,9 @@ _Note: to follow this implementation, you will need **two** instances of type `A
 	* If it is an operator, pop it onto the output queue.
 * Exit.
 
-Once this algorithm is implemented, you should be able to send the now-populated output queue directly to your postfix-processing method in `Postfix.java` to compute the result of an infix equation that uses parentheses as well as `+`, `-`, `*`, and `/`.
+Once again, you want to make sure you think about when you'd like this program to throw exceptions.
+Once the algorithm is implemented, you should be able to send the now-populated output queue directly to your postfix-processing method in `Postfix.java` to compute the result of an infix equation that uses parentheses as well as `+`, `-`, `*`, and `/`.
+You don't have to write any additional functions to do math in this class, as Postfix should be able to handle all the actual computation.
 
 ## Phase 4: Left- vs. Right-Associativity
 The shunting-yard pseudocode given above will work for the operators `+` `-` `*` and `/` but not for `^` (exponentiation).
